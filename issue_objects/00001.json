@@ -1,1 +1,21 @@
-{"status":["open"],"milestone":[],"#":{"version":"0.1.0.9999","class":"Issue"},"title":"Add Cloning tests","id":"00001","description":"","tags":["description_is_vauge","rfs","tests","todo"]}
+{
+   "status" : [
+      "open"
+   ],
+   "milestone" : [
+      "v2.000"
+   ],
+   "#" : {
+      "version" : "0.1.0.9999",
+      "class" : "Issue"
+   },
+   "title" : "Add Cloning tests",
+   "id" : "00001",
+   "description" : "",
+   "tags" : [
+      "description_is_vauge",
+      "rfc",
+      "tests",
+      "todo"
+   ]
+}

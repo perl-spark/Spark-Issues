@@ -1,4 +1,4 @@
-#!/usr/bin/env perl 
+#!/usr/bin/env perl
 
 use strict;
 use warnings;
@@ -12,18 +12,15 @@ use Path::Class::File;
 use lib Path::Class::File->new( __FILE__ )->parent->parent->subdir('.lib')->stringify;
 
 use Issue;
+use Issue::Dir;
 
 my $root = Path::Class::File->new( __FILE__)->parent->parent;
 
-my $issues = $root->subdir('issues');
+my $id = Issue::Dir->new(
+  root_dir => $root
+);
 
-my @data = ();
-
-foreach my $directory ( $issues->children() ){ 
-  next unless $directory->is_dir;
-  my $issue = Issue->load_dir( $directory );
-  push @data, $issue->encode_hash;
-}
+my @data = map { $_->encode_hash } @{ $id->issues  };
 
 my $fh = $root->file('issues.json')->openw;
 require JSON;

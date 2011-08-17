@@ -1,4 +1,4 @@
-#!/usr/bin/env perl 
+#!/usr/bin/env perl
 
 use strict;
 use warnings;
@@ -35,7 +35,7 @@ foreach my $directory ( $issues->children() ){
   $title =~ s/^\s*//; # nuke leading whitespace.
   $title =~ s/\s*$//; # nuke trailing whitespace.
   $title =~ s/[^[:print:]]/-/g; # replace non-printable.
-  
+
   $title = $issue->id . " - " . $title;
 
   push @data, { title => $title, link_target => $directory, issue => $issue };
@@ -46,7 +46,7 @@ sub setup_links {
   my ( $root, $data, $tag_getter ) = @_ ;
   foreach my $label ( $root->children() ) {
     next unless $label->is_dir;
-    foreach my $record ( $label->children() ){ 
+    foreach my $record ( $label->children() ){
       next unless -l $record;
       unlink $record->stringify;
     }
@@ -54,7 +54,7 @@ sub setup_links {
   }
   foreach my $issue ( @{ $data } ) {
     my @tags = $tag_getter->( $issue );
-    foreach my $label ( @tags ){ 
+    foreach my $label ( @tags ){
       my $labeldir = $root->subdir( $label );
       $labeldir->mkpath;
       my $newlink = $labeldir->file( $issue->{title} );

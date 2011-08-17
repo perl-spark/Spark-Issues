@@ -24,7 +24,7 @@ class_has _jsonifier => (
   lazy    => 1,
   default => sub {
     require JSON;
-    return JSON->new();
+    return JSON->new()->pretty;
   }
 );
 
@@ -82,7 +82,7 @@ sub write_dir {
   $object->_raw( $dir, 'description', $object->description );
 }
 
-if( not $Issue::VERSION ){ 
+if( not $Issue::VERSION ){
   $Issue::VERSION = '0.1.0.9999';
 }
 
@@ -91,7 +91,7 @@ sub encode_hash {
   my ( $object) = shift;
   return {
     '#' => { class => 'Issue', version => $Issue::VERSION },
-    id => $object->id, 
+    id => $object->id,
     tags => $object->tags,
     status => $object->status,
     milestone => $object->milestone,
@@ -108,20 +108,20 @@ sub decode_hash {
     if ( defined $hash->{$opt} ){
       $options->{$opt} = delete $hash->{$opt};
     }
-  }  
+  }
   return $class->new( $options );
 }
 
 sub encode_json {
   my ( $object ) = shift;
-  return $object->_jsonifier->encode( 
+  return $object->_jsonifier->encode(
     $object->encode_hash()
   );
 }
 
 sub decode_json {
   my ( $class, $text ) = @_;
-  return $class->decode_hash( 
+  return $class->decode_hash(
     $class->_jsonifier->decode( $text )
   );
 }
