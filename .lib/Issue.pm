@@ -86,9 +86,10 @@ if( not $Issue::VERSION ){
   $Issue::VERSION = '0.1.0.9999';
 }
 
-sub encode_json {
-  my ( $object ) = shift;
-  my $hash = {
+
+sub encode_hash {
+  my ( $object) = shift;
+  return {
     '#' => { class => 'Issue', version => $Issue::VERSION },
     id => $object->id, 
     tags => $object->tags,
@@ -97,12 +98,9 @@ sub encode_json {
     title => $object->title,
     description => $object->description,
   };
-  return $object->_jsonifier->encode( $hash );
 }
-
-sub decode_json {
-  my ( $class, $text ) = @_;
-  my $hash = $class->_jsonifier->decode( $text );
+sub decode_hash {
+  my ( $class, $hash ) = @_;
 
   my $options;
 
@@ -111,8 +109,21 @@ sub decode_json {
       $options->{$opt} = delete $hash->{$opt};
     }
   }  
-
   return $class->new( $options );
+}
+
+sub encode_json {
+  my ( $object ) = shift;
+  return $object->_jsonifier->encode( 
+    $object->encode_hash()
+  );
+}
+
+sub decode_json {
+  my ( $class, $text ) = @_;
+  return $class->decode_hash( 
+    $class->_jsonifier->decode( $text )
+  );
 }
 
 no Moose;
