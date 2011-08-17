@@ -27,5 +27,5 @@ foreach my $directory ( $issues->children() ){
 
 my $fh = $root->file('issues.json')->openw;
 require JSON;
-$fh->print( JSON->new()->encode( \@data ) );
+$fh->print( JSON->new()->pretty->encode( \@data ) );
 $fh->close;
