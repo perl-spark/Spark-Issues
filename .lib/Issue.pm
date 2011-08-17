@@ -28,37 +28,7 @@ class_has _jsonifier => (
   }
 );
 
-sub _expand_filename {
-  my ( $class, $dir, $filename ) = @_;
-  require Path::Class::Dir;
-  return Path::Class::Dir->new($dir)->file($filename)->absolute;
-}
-
-sub _unjson {
-  my ( $class, $dir, $filename ) = @_;
-  return $class->_jsonifier->decode( $class->_unraw( $dir, $filename ), );
-}
-
-sub _unraw {
-  my ( $class, $dir, $filename ) = @_;
-  return scalar $class->_expand_filename( $dir, $filename )->slurp;
-}
-
-sub _raw {
-  my ( $class, $dir, $filename, $text ) = @_;
-  my $file = $class->_expand_filename( $dir, $filename );
-  $file->parent->mkpath();
-  my $fh = $file->openw;
-  $fh->print($text);
-  $fh->close;
-  return;
-}
-
-sub _json {
-  my ( $class, $dir, $filename, @data ) = @_;
-  $class->_raw( $dir, $filename, $class->_jsonifier->encode(@data) );
-  return;
-}
+with 'JSONIZER';
 
 sub load_dir {
   my ( $class, $dir ) = @_;
@@ -110,20 +80,6 @@ sub decode_hash {
     }
   }
   return $class->new( $options );
-}
-
-sub encode_json {
-  my ( $object ) = shift;
-  return $object->_jsonifier->encode(
-    $object->encode_hash()
-  );
-}
-
-sub decode_json {
-  my ( $class, $text ) = @_;
-  return $class->decode_hash(
-    $class->_jsonifier->decode( $text )
-  );
 }
 
 no Moose;
