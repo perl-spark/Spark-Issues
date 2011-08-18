@@ -149,6 +149,26 @@
       "tags" : [
          "description_is_vauge",
          "rfc",
+         "todo",
+         "internals"
+      ]
+   },
+   {
+      "status" : [
+         "open"
+      ],
+      "milestone" : [],
+      "#" : {
+         "version" : "0.1.0.9999",
+         "class" : "Issue"
+      },
+      "title" : "Give ::File/::Image a value?",
+      "id" : "9",
+      "description" : "",
+      "tags" : [
+         "description_is_vauge",
+         "internals",
+         "rfc",
          "todo"
       ]
    }
