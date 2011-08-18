@@ -1,0 +1,18 @@
+{
+   "status" : [
+      "open"
+   ],
+   "milestone" : [],
+   "#" : {
+      "version" : "0.1.0.9999",
+      "class" : "Issue"
+   },
+   "title" : "Support conditional validation",
+   "id" : "7",
+   "description" : "",
+   "tags" : [
+      "description_is_vauge",
+      "rfc",
+      "todo"
+   ]
+}
