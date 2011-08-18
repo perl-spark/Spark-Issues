@@ -171,5 +171,23 @@
          "rfc",
          "todo"
       ]
+   },
+   {
+      "status" : [
+         "closed"
+      ],
+      "milestone" : [
+         "v2.000"
+      ],
+      "#" : {
+         "version" : "0.1.0.9999",
+         "class" : "Issue"
+      },
+      "title" : "Migrate Attribute helpers to Moose 0.90",
+      "id" : "10",
+      "description" : "[kentnl] Just copying this in from the TODO for posterity purposes. This is already completed as far as I can discern.\nMoose 0.90 superseded the need for MooseX::AttributeHelpers",
+      "tags" : [
+         "internals"
+      ]
    }
 ]
