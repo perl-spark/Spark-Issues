@@ -23,6 +23,8 @@ my $statuses      = $root->subdir('statuses');
 my $tags          = $root->subdir('tags');
 my $milestones    = $root->subdir('milestones');
 
+my @data;
+
 foreach my $directory ( $issues->children() ) {
   next unless $directory->is_dir;
   my $issue = Issue->load_dir($directory);
@@ -36,7 +38,7 @@ foreach my $directory ( $issues->children() ) {
   $title =~ s/\s*$//;              # nuke trailing whitespace.
   $title =~ s/[^[:print:]]/-/g;    # replace non-printable.
 
-  $title = $issue->id . " - " . $title;
+  $title = sprintf "%05d - %s", $issue->id, $title;
 
   push @data, { title => $title, link_target => $directory, issue => $issue };
 }
