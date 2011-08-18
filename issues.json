@@ -79,5 +79,23 @@
          "rfc",
          "todo"
       ]
+   },
+   {
+      "status" : [
+         "open"
+      ],
+      "milestone" : [],
+      "#" : {
+         "version" : "0.1.0.9999",
+         "class" : "Issue"
+      },
+      "title" : "Autogenerate forms from DBIx::Class",
+      "id" : "5",
+      "description" : "",
+      "tags" : [
+         "description_is_vauge",
+         "rfc",
+         "todo"
+      ]
    }
 ]
