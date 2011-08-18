@@ -1,0 +1,18 @@
+{
+   "status" : [
+      "open"
+   ],
+   "milestone" : [],
+   "#" : {
+      "version" : "0.1.0.9999",
+      "class" : "Issue"
+   },
+   "title" : "::Reset aught not to have a value",
+   "id" : "8",
+   "description" : "",
+   "tags" : [
+      "description_is_vauge",
+      "rfc",
+      "todo"
+   ]
+}

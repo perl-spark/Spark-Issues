@@ -17,7 +17,7 @@ use Issue::Dir;
 
 my $root = Path::Class::File->new( __FILE__)->parent->parent;
 
-my @tags = qw( *none* description_is_vauge rfc todo tests );
+my @tags = qw( *none* description_is_vauge rfc todo tests internals );
 my @milestones = ( '*none*', 'v2.000' );
 my @statuses = qw( open closed );
 
