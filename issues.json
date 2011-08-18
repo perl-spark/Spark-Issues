@@ -19,5 +19,26 @@
          "tests",
          "todo"
       ]
+   },
+   {
+      "status" : [
+         "open"
+      ],
+      "milestone" : [
+         "v2.000"
+      ],
+      "#" : {
+         "version" : "0.1.0.9999",
+         "class" : "Issue"
+      },
+      "title" : "Add composition tests",
+      "id" : "2",
+      "description" : "",
+      "tags" : [
+         "description_is_vauge",
+         "rfc",
+         "todo",
+         "tests"
+      ]
    }
 ]
