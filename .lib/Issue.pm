@@ -42,6 +42,11 @@ sub load_dir {
   return $class->new( \%config );
 }
 
+sub id_normalised {
+  my ( $object ) = shift;
+  return sprintf "%05d", $object->id;
+}
+
 sub write_dir {
   my ( $object, $dir ) = @_;
   $object->_json( $dir, 'id', [ $object->id ] );

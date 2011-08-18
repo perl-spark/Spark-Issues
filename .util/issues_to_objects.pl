@@ -24,7 +24,7 @@ my $issues = $root->subdir('issues');
 my $issue_objects = $root->subdir('issue_objects');
 
 foreach my $issue (@{ $id->issues }){
-  my $fname = $issue->id . ".json";
+  my $fname = $issue->id_normalised . ".json";
   my $fh = $issue_objects->file( $fname )->openw;
   $fh->print($issue->encode_json);
   $fh->close;

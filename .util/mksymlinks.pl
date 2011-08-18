@@ -38,7 +38,7 @@ foreach my $directory ( $issues->children() ) {
   $title =~ s/\s*$//;              # nuke trailing whitespace.
   $title =~ s/[^[:print:]]/-/g;    # replace non-printable.
 
-  $title = sprintf "%05d - %s", $issue->id, $title;
+  $title = sprintf "%s - %s", $issue->id_normalised, $title;
 
   push @data, { title => $title, link_target => $directory, issue => $issue };
 }
